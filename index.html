@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AspisOS — a capability-secure operating system</title>
+<meta name="description" content="AspisOS is a from-scratch, capability-secure, POSIX-compatible x86-64 operating system. No ambient authority: root is just a number — authority comes only from unforgeable capabilities.">
+<link rel="canonical" href="https://aspisos.org/">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AspisOS — a capability-secure operating system">
+<meta property="og:description" content="A from-scratch, capability-secure, POSIX-compatible x86-64 OS where root is just a number.">
+<meta property="og:url" content="https://aspisos.org/">
+<meta property="og:image" content="https://aspisos.org/assets/wallpaper.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/icon-square.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ───────────────────────── NAV ───────────────────────── -->
+<header class="nav" id="top">
+  <a class="nav__brand" href="#top" aria-label="AspisOS home">
+    <img src="assets/logo.png" alt="AspisOS" height="26">
+  </a>
+  <nav class="nav__links">
+    <a href="#features">Security</a>
+    <a href="#desktop">Desktop</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#download">Download</a>
+    <a class="nav__gh" href="https://github.com/AspisOS" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
+</header>
+
+<!-- ───────────────────────── HERO ───────────────────────── -->
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <p class="eyebrow">Capability-secure · POSIX-compatible · built from scratch</p>
+    <h1>The operating system where<br><span class="accent">root is just a number.</span></h1>
+    <p class="lede">
+      AspisOS grants no ambient authority. No process — not even <code>uid&nbsp;0</code> — holds
+      power it wasn't explicitly given. Authority comes only from unforgeable capability
+      tokens, validated at the syscall boundary. A clean-slate kernel, a real desktop,
+      and software you already know.
+    </p>
+    <div class="cta">
+      <a class="btn btn--primary" href="#download">Download AspisOS</a>
+      <a class="btn btn--ghost" href="https://github.com/AspisOS/AspisOS" target="_blank" rel="noopener">View source</a>
+    </div>
+    <p class="disclaimer">
+      <strong>v1 software — first public release.</strong> Not production-hardened. The C
+      kernel likely contains real, exploitable vulnerabilities. We'd rather tell you than pretend.
+    </p>
+  </div>
+</section>
+
+<!-- ───────────── SCREENSHOT: HERO DESKTOP ───────────── -->
+<!--
+  REPLACE THIS PLACEHOLDER with a wide hero screenshot of the live AspisOS desktop.
+  Show: the Lumen compositor over the aspis wallpaper, the Citadel dock at the
+  bottom, the top bar with the AspisOS menu, and 2–3 open frosted-glass windows
+  (e.g. Terminal + Files + Settings) overlapping so the blur/translucency reads.
+  Aspect ~16:10, export at 2560×1600 (retina) so it stays crisp. Save as
+  assets/shot-desktop.png and swap the <div> below for an <img>.
+-->
+<section class="shotwrap">
+  <figure class="shot shot--hero" id="shot-desktop">
+    <div class="shot__label">
+      <span class="shot__cam">▦</span>
+      <span class="shot__title">Screenshot — the AspisOS desktop</span>
+      <span class="shot__note">Lumen compositor over the aspis wallpaper · dock + top bar · 2–3 overlapping frosted-glass windows (Terminal, Files, Settings). 16:10, export @2560×1600.</span>
+    </div>
+  </figure>
+</section>
+
+<!-- ───────────────────────── FEATURES ───────────────────────── -->
+<section class="section" id="features">
+  <h2 class="section__title">Security is the architecture, not a setting</h2>
+  <p class="section__sub">Most systems bolt access control onto an all-powerful root. AspisOS starts from the opposite end.</p>
+
+  <div class="grid grid--3">
+    <article class="card">
+      <h3>No ambient authority</h3>
+      <p>A process can touch the system only through capabilities granted to it at exec time. <code>uid=0</code> is cosmetic — there is no "superuser" that bypasses the checks. Forge nothing, inherit nothing by default.</p>
+    </article>
+    <article class="card">
+      <h3>Checked at the boundary</h3>
+      <p>Every privileged syscall validates an unforgeable capability token before it acts. Authority lives in the token, not the identity behind it. Fail closed by default.</p>
+    </article>
+    <article class="card">
+      <h3>A from-scratch kernel</h3>
+      <p>Aegis is a clean-slate x86-64 kernel — no Linux or BSD lineage. Written in C with a Rust capability core, it boots, schedules, networks, and runs a real userland on its own terms.</p>
+    </article>
+    <article class="card">
+      <h3>POSIX-compatible</h3>
+      <p>It speaks enough POSIX (atop musl libc) to run software you already know — shells, compilers, network tools, and ported GUI apps — without pretending to be Linux.</p>
+    </article>
+    <article class="card">
+      <h3>A real desktop</h3>
+      <p>Lumen is a compositing display server with frosted-glass windows, a dock, and a suite of native apps: terminal, files, editor, settings, calculator, media, and more.</p>
+    </article>
+    <article class="card">
+      <h3>Signed packages</h3>
+      <p>The <code>herald</code> package manager installs from a Chancery-signed repository — trust flows from a signed release down to every package hash. Add software with one command.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ───────────────────────── DESKTOP ───────────────────────── -->
+<section class="section section--alt" id="desktop">
+  <h2 class="section__title">It's a desktop you can actually use</h2>
+  <p class="section__sub">Not a kernel demo. A composited GUI, native apps, and a package ecosystem.</p>
+
+  <div class="grid grid--2">
+    <!-- SCREENSHOT: APPS / WINDOWS -->
+    <!--
+      REPLACE: a close-up of 2–3 AspisOS apps showing the frosted-glass aesthetic —
+      e.g. the File Manager, the Text Editor, and the Calculator open together, with
+      the dock visible. Pick a shot where the translucency/blur and the accent theming
+      are obvious. Save as assets/shot-apps.png, ~1600×1200.
+    -->
+    <figure class="shot" id="shot-apps">
+      <div class="shot__label">
+        <span class="shot__cam">▦</span>
+        <span class="shot__title">Screenshot — native apps</span>
+        <span class="shot__note">Files + Editor + Calculator open together over the dock; frosted glass + accent theming visible. ~1600×1200.</span>
+      </div>
+    </figure>
+
+    <!-- SCREENSHOT: TERMINAL / CAPABILITIES -->
+    <!--
+      REPLACE: a terminal screenshot that PROVES the security model. Ideal content:
+      run `id` (shows uid=0) right next to a privileged action that is DENIED with an
+      ENOCAP / "no capability" error — i.e. root without the capability still can't act.
+      A `caps` listing for a process also works. This is the money shot. assets/shot-terminal.png, ~1600×1200.
+    -->
+    <figure class="shot" id="shot-terminal">
+      <div class="shot__label">
+        <span class="shot__cam">▦</span>
+        <span class="shot__title">Screenshot — capabilities in action</span>
+        <span class="shot__note">Terminal: <code>uid=0</code> yet a privileged syscall is DENIED (ENOCAP). The "money shot" that proves no-ambient-authority. ~1600×1200.</span>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- ───────────────────────── ARCHITECTURE ───────────────────────── -->
+<section class="section" id="architecture">
+  <h2 class="section__title">How it's built</h2>
+  <p class="section__sub">AspisOS is decomposed into independent, versioned pieces — each its own repository.</p>
+
+  <div class="stack">
+    <div class="layer">
+      <div class="layer__name">Aegis</div>
+      <div class="layer__desc">The kernel. Capability model, scheduler, memory, sockets, drivers. Ships as a standalone <code>aegis.elf</code> artifact — adoptable on its own. <a href="https://github.com/AspisOS/Aegis" target="_blank" rel="noopener">AspisOS/Aegis ↗</a></div>
+    </div>
+    <div class="layer">
+      <div class="layer__name">Lumen</div>
+      <div class="layer__desc">The compositor / display server. Owns the framebuffer; every GUI app is one of its clients over an <code>AF_UNIX</code> protocol. <a href="https://github.com/AspisOS/lumen" target="_blank" rel="noopener">AspisOS/lumen ↗</a></div>
+    </div>
+    <div class="layer">
+      <div class="layer__name">herald + Chancery</div>
+      <div class="layer__desc">The package manager and its signed repository. Trust chains from a signed release to every package hash. <a href="https://github.com/AspisOS" target="_blank" rel="noopener">AspisOS org ↗</a></div>
+    </div>
+    <div class="layer">
+      <div class="layer__name">Apps</div>
+      <div class="layer__desc">Terminal, Files, Editor, Settings, Calculator, Tunes, Calendar, and more — each a standalone <code>lumen-*</code> repo published as a signed package.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── SCREENSHOT GALLERY ───────────────────────── -->
+<section class="section section--alt">
+  <h2 class="section__title">A look around</h2>
+  <p class="section__sub">Replace these four tiles with real captures as the desktop firms up.</p>
+
+  <div class="grid grid--2">
+    <!-- SCREENSHOT: BOOT / GREETER -->
+    <!-- REPLACE: the Bastion greeter (login) screen, or the boot splash. Shows first impression. assets/shot-greeter.png ~1600×1000 -->
+    <figure class="shot shot--sm" id="shot-greeter">
+      <div class="shot__label"><span class="shot__cam">▦</span><span class="shot__title">Greeter / boot</span><span class="shot__note">The Bastion login screen or boot splash.</span></div>
+    </figure>
+    <!-- SCREENSHOT: SETTINGS -->
+    <!-- REPLACE: the Settings app — System pane (showing Edition: Community, Kernel version) or Appearance. assets/shot-settings.png ~1600×1000 -->
+    <figure class="shot shot--sm" id="shot-settings">
+      <div class="shot__label"><span class="shot__cam">▦</span><span class="shot__title">Settings</span><span class="shot__note">System pane — Edition: Community, Kernel version, hostname.</span></div>
+    </figure>
+    <!-- SCREENSHOT: GAMES / FUN -->
+    <!-- REPLACE: a couple of the games (2048 / Snake / Minesweeper) open, to show it's a living desktop. assets/shot-games.png ~1600×1000 -->
+    <figure class="shot shot--sm" id="shot-games">
+      <div class="shot__label"><span class="shot__cam">▦</span><span class="shot__title">Apps & games</span><span class="shot__note">2048 / Snake / Minesweeper — installable via herald.</span></div>
+    </figure>
+    <!-- SCREENSHOT: NETWORK / BROWSER -->
+    <!-- REPLACE: something networked — the Feeds RSS reader, or Lantern rendering a page. Proves the TCP/IP stack + userland net. assets/shot-net.png ~1600×1000 -->
+    <figure class="shot shot--sm" id="shot-net">
+      <div class="shot__label"><span class="shot__cam">▦</span><span class="shot__title">Networking</span><span class="shot__note">Feeds RSS reader or Lantern browser over the native TCP/IP stack.</span></div>
+    </figure>
+  </div>
+</section>
+
+<!-- ───────────────────────── EDITIONS ───────────────────────── -->
+<section class="section" id="editions">
+  <h2 class="section__title">Editions</h2>
+  <div class="grid grid--2 editions">
+    <article class="card card--edition">
+      <h3>Community</h3>
+      <p class="price">Free &amp; open</p>
+      <p>The full desktop and server OS, source-available, built in the open. Everything on this page. Install it, hack on it, ship it.</p>
+      <a class="btn btn--primary" href="#download">Get Community</a>
+    </article>
+    <article class="card card--edition card--soon">
+      <h3>Enterprise <span class="tag">soon</span></h3>
+      <p class="price">Commercial</p>
+      <p>Hardened builds, signed enterprise packages, licensing, and support — for organizations that need a contract behind the capability model.</p>
+      <a class="btn btn--ghost" href="https://aspisos.com" target="_blank" rel="noopener">aspisos.com ↗</a>
+    </article>
+  </div>
+</section>
+
+<!-- ───────────────────────── DOWNLOAD ───────────────────────── -->
+<section class="section section--alt" id="download">
+  <h2 class="section__title">Get AspisOS</h2>
+  <p class="section__sub">Two profiles, one project. Boot the ISO in a VM, or write it to a USB stick.</p>
+
+  <div class="grid grid--2">
+    <article class="card">
+      <h3>Desktop ISO</h3>
+      <p>The full graphical experience — Lumen, the dock, and the app suite.</p>
+      <a class="btn btn--primary" href="https://github.com/AspisOS/AspisOS/releases" target="_blank" rel="noopener">Latest release ↗</a>
+    </article>
+    <article class="card">
+      <h3>Server ISO</h3>
+      <p>A text-console build — zero graphical stack, for headless and minimal installs.</p>
+      <a class="btn btn--primary" href="https://github.com/AspisOS/AspisOS/releases" target="_blank" rel="noopener">Latest release ↗</a>
+    </article>
+  </div>
+
+  <div class="quickstart">
+    <p class="quickstart__title">Quick boot in QEMU</p>
+    <pre><code>qemu-system-x86_64 -m 2G -enable-kvm \
+  -cdrom aspisos-desktop.iso \
+  -device virtio-vga -display gtk</code></pre>
+  </div>
+</section>
+
+<!-- ───────────────────────── FOOTER ───────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="assets/logo.png" alt="AspisOS" height="22">
+      <p>A capability-secure operating system, built from scratch.</p>
+    </div>
+    <nav class="footer__cols">
+      <div>
+        <h4>Project</h4>
+        <a href="https://github.com/AspisOS" target="_blank" rel="noopener">GitHub org</a>
+        <a href="https://github.com/AspisOS/Aegis" target="_blank" rel="noopener">Aegis kernel</a>
+        <a href="https://github.com/AspisOS/AspisOS/releases" target="_blank" rel="noopener">Releases</a>
+      </div>
+      <div>
+        <h4>More</h4>
+        <a href="https://aspisos.com" target="_blank" rel="noopener">Enterprise</a>
+        <a href="https://github.com/AspisOS/AspisOS" target="_blank" rel="noopener">Source</a>
+      </div>
+    </nav>
+  </div>
+  <div class="footer__base">
+    <span>© AspisOS. Created by Dylan Hart.</span>
+    <span>Built with Claude Code.</span>
+  </div>
+</footer>
+
+</body>
+</html>
