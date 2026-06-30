@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 
 # Builds nothing — this is a static site. Publishes the repo root to GitHub
-# Pages, which serves it at the custom domain in ./CNAME (aspisos.org).
+# Pages, which serves it at the custom domain in ./CNAME (loricaos.org).
 on:
   push:
     branches: [main]

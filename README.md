@@ -1,9 +1,9 @@
 # org-landing-page
 
-The marketing landing page for **[AspisOS](https://github.com/AspisOS)** — served
-at **[aspisos.org](https://aspisos.org)** via GitHub Pages.
+The marketing landing page for **[LoricaOS](https://github.com/LoricaOS)** — served
+at **[loricaos.org](https://loricaos.org)** via GitHub Pages.
 
-Static HTML/CSS, no build step. Dark, monochrome design matching the AspisOS brand.
+Static HTML/CSS, no build step. Dark, monochrome design matching the LoricaOS brand.
 
 ## Layout
 
@@ -11,7 +11,7 @@ Static HTML/CSS, no build step. Dark, monochrome design matching the AspisOS bra
 index.html      the page (single file; all sections, screenshot placeholders inline)
 style.css       the styling (dark, frosted-glass, responsive)
 assets/         logo.png, wallpaper.png, favicon.png, icon-square.png
-CNAME           the custom domain (aspisos.org)
+CNAME           the custom domain (loricaos.org)
 .nojekyll       tells Pages to serve files verbatim (no Jekyll processing)
 .github/workflows/deploy.yml   publishes the repo root to GitHub Pages on every push to main
 ```
@@ -39,7 +39,7 @@ and replace that `<figure class="shot">…</figure>` with `<img class="shot" src
 
 Pushing to `main` runs `.github/workflows/deploy.yml`, which publishes the repo
 root to GitHub Pages. **One-time setup in repo Settings → Pages: set _Source_ to
-_GitHub Actions_.** DNS for `aspisos.org` is configured separately (an `A`/`ALIAS`
+_GitHub Actions_.** DNS for `loricaos.org` is configured separately (an `A`/`ALIAS`
 to GitHub Pages plus a `CNAME` for `www`); the `CNAME` file here claims the domain.
 
 ## Local preview

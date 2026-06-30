@@ -1,4 +1,4 @@
-/* AspisOS landing page — dark, monochrome, frosted-glass to echo the OS. */
+/* LoricaOS landing page — dark, monochrome, frosted-glass to echo the OS. */
 
 :root{
   --bg:        #08080c;
@@ -47,8 +47,9 @@ code{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;fo
 .nav__links{display:flex;align-items:center;gap:26px;font-size:.93rem;font-weight:500;color:var(--muted)}
 .nav__links a{transition:color .15s}
 .nav__links a:hover{color:var(--text)}
-.nav__gh{color:var(--text)!important;font-weight:600}
-@media(max-width:680px){ .nav__links a:not(.nav__gh){display:none} }
+.nav__cta{color:#0a0a14!important;background:var(--accent);font-weight:600;padding:.5em 1em;border-radius:9px;transition:background .15s}
+.nav__cta:hover{background:var(--accent-2)}
+@media(max-width:680px){ .nav__links a:not(.nav__cta){display:none} }
 
 /* ── hero ── */
 .hero{position:relative;overflow:hidden;padding:104px 24px 120px;text-align:center}
@@ -59,7 +60,7 @@ code{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;fo
   mask-image:radial-gradient(120% 80% at 50% 30%, #000 30%, transparent 75%);
   -webkit-mask-image:radial-gradient(120% 80% at 50% 30%, #000 30%, transparent 75%);
 }
-.hero__inner{position:relative;z-index:1;max-width:860px;margin:0 auto}
+.hero__inner{position:relative;z-index:1;max-width:960px;margin:0 auto}
 .eyebrow{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 22px}
 .hero h1{font-size:clamp(2.3rem,6vw,4rem);line-height:1.06;font-weight:800;letter-spacing:-.02em;margin:0 0 24px}
 .accent{color:var(--accent);text-shadow:0 0 40px rgba(138,180,255,.45)}

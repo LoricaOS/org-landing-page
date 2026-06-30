@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AspisOS — a capability-secure operating system</title>
-<meta name="description" content="AspisOS is a from-scratch, capability-secure, POSIX-compatible x86-64 operating system. No ambient authority: root is just a number — authority comes only from unforgeable capabilities.">
-<link rel="canonical" href="https://aspisos.org/">
+<title>LoricaOS — a capability-secure operating system</title>
+<meta name="description" content="LoricaOS is a from-scratch, capability-secure, POSIX-compatible x86-64 operating system. No ambient authority: root is just a number — authority comes only from unforgeable capabilities.">
+<link rel="canonical" href="https://loricaos.org/">
 
 <!-- Open Graph / social -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="AspisOS — a capability-secure operating system">
+<meta property="og:title" content="LoricaOS — a capability-secure operating system">
 <meta property="og:description" content="A from-scratch, capability-secure, POSIX-compatible x86-64 OS where root is just a number.">
-<meta property="og:url" content="https://aspisos.org/">
-<meta property="og:image" content="https://aspisos.org/assets/wallpaper.png">
+<meta property="og:url" content="https://loricaos.org/">
+<meta property="og:image" content="https://loricaos.org/assets/wallpaper.png">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -27,15 +27,15 @@
 
 <!-- ───────────────────────── NAV ───────────────────────── -->
 <header class="nav" id="top">
-  <a class="nav__brand" href="#top" aria-label="AspisOS home">
-    <img src="assets/logo.png" alt="AspisOS" height="26">
+  <a class="nav__brand" href="#top" aria-label="LoricaOS home">
+    <img src="assets/logo.png" alt="LoricaOS" height="26">
   </a>
   <nav class="nav__links">
     <a href="#features">Security</a>
     <a href="#desktop">Desktop</a>
     <a href="#architecture">Architecture</a>
     <a href="#download">Download</a>
-    <a class="nav__gh" href="https://github.com/AspisOS" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="nav__cta" href="https://github.com/LoricaOS" target="_blank" rel="noopener">GitHub ↗</a>
   </nav>
 </header>
 
@@ -44,16 +44,16 @@
   <div class="hero__bg" aria-hidden="true"></div>
   <div class="hero__inner">
     <p class="eyebrow">Capability-secure · POSIX-compatible · built from scratch</p>
-    <h1>The operating system where<br><span class="accent">root is just a number.</span></h1>
+    <h1>The operating system where<br><span class="accent">UID 0 is just a number.</span></h1>
     <p class="lede">
-      AspisOS grants no ambient authority. No process — not even <code>uid&nbsp;0</code> — holds
+      LoricaOS grants no ambient authority. No process — not even <code>uid&nbsp;0</code> — holds
       power it wasn't explicitly given. Authority comes only from unforgeable capability
       tokens, validated at the syscall boundary. A clean-slate kernel, a real desktop,
       and software you already know.
     </p>
     <div class="cta">
-      <a class="btn btn--primary" href="#download">Download AspisOS</a>
-      <a class="btn btn--ghost" href="https://github.com/AspisOS/AspisOS" target="_blank" rel="noopener">View source</a>
+      <a class="btn btn--primary" href="#download">Download LoricaOS</a>
+      <a class="btn btn--ghost" href="https://github.com/LoricaOS/LoricaOS" target="_blank" rel="noopener">View source</a>
     </div>
     <p class="disclaimer">
       <strong>v1 software — first public release.</strong> Not production-hardened. The C
@@ -64,9 +64,9 @@
 
 <!-- ───────────── SCREENSHOT: HERO DESKTOP ───────────── -->
 <!--
-  REPLACE THIS PLACEHOLDER with a wide hero screenshot of the live AspisOS desktop.
+  REPLACE THIS PLACEHOLDER with a wide hero screenshot of the live LoricaOS desktop.
   Show: the Lumen compositor over the aspis wallpaper, the Citadel dock at the
-  bottom, the top bar with the AspisOS menu, and 2–3 open frosted-glass windows
+  bottom, the top bar with the LoricaOS menu, and 2–3 open frosted-glass windows
   (e.g. Terminal + Files + Settings) overlapping so the blur/translucency reads.
   Aspect ~16:10, export at 2560×1600 (retina) so it stays crisp. Save as
   assets/shot-desktop.png and swap the <div> below for an <img>.
@@ -75,7 +75,7 @@
   <figure class="shot shot--hero" id="shot-desktop">
     <div class="shot__label">
       <span class="shot__cam">▦</span>
-      <span class="shot__title">Screenshot — the AspisOS desktop</span>
+      <span class="shot__title">Screenshot — the LoricaOS desktop</span>
       <span class="shot__note">Lumen compositor over the aspis wallpaper · dock + top bar · 2–3 overlapping frosted-glass windows (Terminal, Files, Settings). 16:10, export @2560×1600.</span>
     </div>
   </figure>
@@ -84,7 +84,7 @@
 <!-- ───────────────────────── FEATURES ───────────────────────── -->
 <section class="section" id="features">
   <h2 class="section__title">Security is the architecture, not a setting</h2>
-  <p class="section__sub">Most systems bolt access control onto an all-powerful root. AspisOS starts from the opposite end.</p>
+  <p class="section__sub">Most systems bolt access control onto an all-powerful root. LoricaOS starts from the opposite end.</p>
 
   <div class="grid grid--3">
     <article class="card">
@@ -122,7 +122,7 @@
   <div class="grid grid--2">
     <!-- SCREENSHOT: APPS / WINDOWS -->
     <!--
-      REPLACE: a close-up of 2–3 AspisOS apps showing the frosted-glass aesthetic —
+      REPLACE: a close-up of 2–3 LoricaOS apps showing the frosted-glass aesthetic —
       e.g. the File Manager, the Text Editor, and the Calculator open together, with
       the dock visible. Pick a shot where the translucency/blur and the accent theming
       are obvious. Save as assets/shot-apps.png, ~1600×1200.
@@ -155,20 +155,20 @@
 <!-- ───────────────────────── ARCHITECTURE ───────────────────────── -->
 <section class="section" id="architecture">
   <h2 class="section__title">How it's built</h2>
-  <p class="section__sub">AspisOS is decomposed into independent, versioned pieces — each its own repository.</p>
+  <p class="section__sub">LoricaOS is decomposed into independent, versioned pieces — each its own repository.</p>
 
   <div class="stack">
     <div class="layer">
       <div class="layer__name">Aegis</div>
-      <div class="layer__desc">The kernel. Capability model, scheduler, memory, sockets, drivers. Ships as a standalone <code>aegis.elf</code> artifact — adoptable on its own. <a href="https://github.com/AspisOS/Aegis" target="_blank" rel="noopener">AspisOS/Aegis ↗</a></div>
+      <div class="layer__desc">The kernel. Capability model, scheduler, memory, sockets, drivers. Ships as a standalone <code>aegis.elf</code> artifact — adoptable on its own. <a href="https://github.com/LoricaOS/Aegis" target="_blank" rel="noopener">LoricaOS/Aegis ↗</a></div>
     </div>
     <div class="layer">
       <div class="layer__name">Lumen</div>
-      <div class="layer__desc">The compositor / display server. Owns the framebuffer; every GUI app is one of its clients over an <code>AF_UNIX</code> protocol. <a href="https://github.com/AspisOS/lumen" target="_blank" rel="noopener">AspisOS/lumen ↗</a></div>
+      <div class="layer__desc">The compositor / display server. Owns the framebuffer; every GUI app is one of its clients over an <code>AF_UNIX</code> protocol. <a href="https://github.com/LoricaOS/lumen" target="_blank" rel="noopener">LoricaOS/lumen ↗</a></div>
     </div>
     <div class="layer">
       <div class="layer__name">herald + Chancery</div>
-      <div class="layer__desc">The package manager and its signed repository. Trust chains from a signed release to every package hash. <a href="https://github.com/AspisOS" target="_blank" rel="noopener">AspisOS org ↗</a></div>
+      <div class="layer__desc">The package manager and its signed repository. Trust chains from a signed release to every package hash. <a href="https://github.com/LoricaOS" target="_blank" rel="noopener">LoricaOS org ↗</a></div>
     </div>
     <div class="layer">
       <div class="layer__name">Apps</div>
@@ -220,33 +220,33 @@
       <h3>Enterprise <span class="tag">soon</span></h3>
       <p class="price">Commercial</p>
       <p>Hardened builds, signed enterprise packages, licensing, and support — for organizations that need a contract behind the capability model.</p>
-      <a class="btn btn--ghost" href="https://aspisos.com" target="_blank" rel="noopener">aspisos.com ↗</a>
+      <a class="btn btn--ghost" href="https://loricaos.com" target="_blank" rel="noopener">loricaos.com ↗</a>
     </article>
   </div>
 </section>
 
 <!-- ───────────────────────── DOWNLOAD ───────────────────────── -->
 <section class="section section--alt" id="download">
-  <h2 class="section__title">Get AspisOS</h2>
+  <h2 class="section__title">Get LoricaOS</h2>
   <p class="section__sub">Two profiles, one project. Boot the ISO in a VM, or write it to a USB stick.</p>
 
   <div class="grid grid--2">
     <article class="card">
       <h3>Desktop ISO</h3>
       <p>The full graphical experience — Lumen, the dock, and the app suite.</p>
-      <a class="btn btn--primary" href="https://github.com/AspisOS/AspisOS/releases" target="_blank" rel="noopener">Latest release ↗</a>
+      <a class="btn btn--primary" href="https://github.com/LoricaOS/LoricaOS/releases" target="_blank" rel="noopener">Latest release ↗</a>
     </article>
     <article class="card">
       <h3>Server ISO</h3>
       <p>A text-console build — zero graphical stack, for headless and minimal installs.</p>
-      <a class="btn btn--primary" href="https://github.com/AspisOS/AspisOS/releases" target="_blank" rel="noopener">Latest release ↗</a>
+      <a class="btn btn--primary" href="https://github.com/LoricaOS/LoricaOS/releases" target="_blank" rel="noopener">Latest release ↗</a>
     </article>
   </div>
 
   <div class="quickstart">
     <p class="quickstart__title">Quick boot in QEMU</p>
     <pre><code>qemu-system-x86_64 -m 2G -enable-kvm \
-  -cdrom aspisos-desktop.iso \
+  -cdrom loricaos-desktop.iso \
   -device virtio-vga -display gtk</code></pre>
   </div>
 </section>
@@ -255,25 +255,25 @@
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <img src="assets/logo.png" alt="AspisOS" height="22">
+      <img src="assets/logo.png" alt="LoricaOS" height="22">
       <p>A capability-secure operating system, built from scratch.</p>
     </div>
     <nav class="footer__cols">
       <div>
         <h4>Project</h4>
-        <a href="https://github.com/AspisOS" target="_blank" rel="noopener">GitHub org</a>
-        <a href="https://github.com/AspisOS/Aegis" target="_blank" rel="noopener">Aegis kernel</a>
-        <a href="https://github.com/AspisOS/AspisOS/releases" target="_blank" rel="noopener">Releases</a>
+        <a href="https://github.com/LoricaOS" target="_blank" rel="noopener">GitHub org</a>
+        <a href="https://github.com/LoricaOS/Aegis" target="_blank" rel="noopener">Aegis kernel</a>
+        <a href="https://github.com/LoricaOS/LoricaOS/releases" target="_blank" rel="noopener">Releases</a>
       </div>
       <div>
         <h4>More</h4>
-        <a href="https://aspisos.com" target="_blank" rel="noopener">Enterprise</a>
-        <a href="https://github.com/AspisOS/AspisOS" target="_blank" rel="noopener">Source</a>
+        <a href="https://loricaos.com" target="_blank" rel="noopener">Enterprise</a>
+        <a href="https://github.com/LoricaOS/LoricaOS" target="_blank" rel="noopener">Source</a>
       </div>
     </nav>
   </div>
   <div class="footer__base">
-    <span>© AspisOS. Created by Dylan Hart.</span>
+    <span>© LoricaOS. Created by Dylan Hart.</span>
     <span>Built with Claude Code.</span>
   </div>
 </footer>
